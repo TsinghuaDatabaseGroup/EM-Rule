@@ -1,0 +1,584 @@
+#include "UnARM.h"
+
+
+
+void UnARM::preStoreSimValue()
+{
+	vector<AttrRule*> ars;
+	arManager.getARSet(ars);
+	for (unsigned int i=0; i<ars.size(); ++i)
+	{
+		ars[i]->setAttrPos(trainData.getAttrPos(ars[i]->getName()));
+	}
+	for (unsigned int i=0; i<ars.size(); ++i)
+	{
+		int pos = ars[i]->getAttrPos();
+		tableSimValues.compute(pos, 0);
+		if (ars[i]->isCertain())
+		{
+			tableSimValues.compute(pos, ((CAttrRule*)ars[i])->getSimFunc());
+		}
+		else
+		{
+			const vector<int>& simFuncs = ((UAttrRule*)ars[i])->getSimFuncs();
+			for (unsigned int j=0; j<simFuncs.size(); ++j)
+			{
+				tableSimValues.compute(pos, simFuncs[j]);
+			}
+		}
+	}
+}
+/*bool UnARM::satisfy(CAttrRule* ar, int id)
+{
+	assert(ar->isCertain());
+	int simFunc = 0;
+	if (ar->getSimFuncs().size() > 0)
+		simFunc = ar->getSimFuncs()[0];
+	assert(ar->getSimFuncs().size() <=1);
+	const vector<double>& thresholds = tableSimValues.columnSimValues(ar->getAttrPos(), simFunc);
+	return nosmallerThreshold(thresholds[id], ar->getThreshold());
+}*/
+bool UnARM::satisfy(CAttrRule* car, int id)
+{
+	int simFunc = car->getSimFunc();
+	const vector<int>& thresholds = tableSimValues.columnSimValues(car->getAttrPos(), simFunc);
+	return thresholds[id] >= car->getThreshold();
+}
+bool UnARM::exactSatisfy(CAttrRule* car, int id)
+{
+	if (car->getThreshold() == PRECISION)
+		return true;
+	int simFunc = car->getSimFunc();
+	const vector<int>& thresholds = tableSimValues.columnSimValues(car->getAttrPos(), simFunc);
+	return thresholds[id] == car->getThreshold();
+}
+bool UnARM::satisfy(const TupleRule& tr, int id)
+{
+	const vector<AttrRule*>& ars = tr.getTupleRule();
+	for (unsigned i=0; i<ars.size(); ++i)
+	{
+		AttrRule* ar = ars[i];
+		if (!ar->isCertain())
+		{
+			assert(resultMap.count((UAttrRule*)ars[i]));
+			ar = resultMap[(UAttrRule*)ars[i]];
+		}
+		assert(ar->isCertain());
+		if (!satisfy((CAttrRule*)ar, id))
+			return false;
+	}
+	return true;
+	
+}
+bool UnARM::satisfy(const vector<TupleRule>& trs, int id)
+{
+	for (unsigned i=0; i<trs.size(); ++i)
+	{
+		if (satisfy(trs[i], id))
+			return true;
+	}
+	return false;
+}
+void UnARM::satisfy(const vector<TupleRule>& trs, const vector<int>& M, const vector<int>&D,  int& c, int& w)
+{
+	for (unsigned i=0; i<M.size(); ++i)
+	{
+		for (unsigned j=0; j<trs.size(); ++j)
+		{
+			if (satisfy(trs[j], M[i]))
+			{
+				++c;
+				break;
+			}
+		}
+	}
+	for (unsigned i=0; i<D.size(); ++i)
+	{
+		for (unsigned j=0; j<trs.size(); ++j)
+		{
+			if (satisfy(trs[j], D[i]))
+			{
+				++w;
+				break;
+			}
+		}
+	}
+}
+
+void UnARM::satisfy(CAttrRule* ar, const vector<int>& M, const vector<int>&D,  int& c, int& w)
+{
+	for (unsigned i=0; i<M.size(); ++i)
+	{
+		if (satisfy(ar, M[i]))
+		{
+			++c;
+		}
+	}
+	for (unsigned i=0; i<D.size(); ++i)
+	{
+		if (satisfy(ar, D[i]))
+		{
+			++w;
+		}
+	}
+}
+
+void UnARM::possibleMappingSet(UAttrRule* uar, const vector<int>& M, vector<CAttrRule*>& par)
+{
+	par.clear();
+	const vector<int>& simFuncs = uar->getSimFuncs();
+	for (unsigned i=0; i<simFuncs.size(); ++i)
+	{
+		const vector<int>& columnSimValues = tableSimValues.columnSimValues(uar->getAttrPos(), simFuncs[i]);
+		vector<int> thresholds(1,PRECISION);
+		for (unsigned j=0; j<M.size(); ++j)
+		{
+			thresholds.push_back(columnSimValues[M[j]]);
+			assert(columnSimValues[M[j]] >=0);
+		}
+		sort(thresholds.begin(), thresholds.end(), greater<int>());
+		assert(thresholds.back() >=0);
+		int th = -1;
+		for (unsigned j=0; j<thresholds.size(); ++j)
+		{
+			if (th != thresholds[j])
+				par.push_back(new CAttrRule(uar->getName(), uar->getAttrPos(), simFuncs[i], thresholds[j]));
+			th = thresholds[j];
+		}
+	}
+}
+void UnARM::eliminateRedundancy(UAttrRule* uar, vector<CAttrRule*>& par, const vector<int>& M, const vector<int>& D, vector<CAttrRule*>& parNon, bool verbose)
+{
+	parNon.clear();
+	for (unsigned i=0; i<par.size(); ++i)
+	{
+		bool redundancy;
+		for (unsigned j=0; j<par.size(); ++j)
+		{
+			if (i == j)
+				continue;
+			redundancy = true;
+			bool equal = true;
+			for (unsigned k=0; k<M.size(); ++k)
+			{
+				bool flag1 = satisfy(par[i], M[k]);
+				bool flag2 = satisfy(par[j], M[k]);
+				if (flag1 && !flag2)
+				{
+					redundancy = false;
+					break;
+				}
+				if (equal && !flag1 && flag2)
+					equal = false;
+			}
+			if (!redundancy)
+				continue;
+			for (unsigned k=0; k<D.size(); ++k)
+			{
+				bool flag1 = satisfy(par[i], D[k]);
+				bool flag2 = satisfy(par[j], D[k]);
+				if (flag2 && !flag1)
+				{
+					redundancy = false;
+					break;
+				}
+				if (equal && !flag2 && flag1)
+					equal = false;
+			}
+			if (!redundancy)
+				continue;
+			if (equal && i>j)
+				redundancy = false;
+			if (redundancy)
+				break;
+		}
+		if (!redundancy)
+			parNon.push_back(par[i]);
+	}
+	if (verbose)
+		cout << M.size() << "\t" << D.size() << "\t" << par.size() << "\t" << parNon.size() << "\t";
+}
+
+void UnARM::eliminateRedundancyOp(UAttrRule* uar, vector<CAttrRule*>& cars, const vector<int>& M, const vector<int>& D, vector<CAttrRule*>& parNon, bool verbose)
+{
+	vector<CAttrRule*> parNon1;
+	int pos = uar->getAttrPos();
+
+	CInvertedIndex CIXM, CIXD;
+	CIXD.construct(cars, tableSimValues.columnAllSimValues(pos), trainData.getNonMatchingTP());
+	for (unsigned i=1; i<cars.size(); ++i)
+	{
+		if (CIXD.getInvertedListSize(cars[i]) != 0)
+		{
+			parNon1.push_back(cars[i-1]);
+		}
+		else
+		{
+			if (cars[i-1]->getSimFunc() != cars[i]->getSimFunc())
+				parNon1.push_back(cars[i-1]);
+		}
+	}
+	parNon1.push_back(cars.back());
+	CIXD.clear();
+	CIXD.construct(parNon1, tableSimValues.columnAllSimValues(pos), trainData.getNonMatchingTP());
+	CIXM.construct(parNon1, tableSimValues.columnAllSimValues(pos), trainData.getMatchingTP());
+
+	ForwardIndex FX(trainData.getDataSize());
+	FX.add(CIXM);
+	FX.add(CIXD);
+
+	map<CAttrRule*, vector<CAttrRule*> > TLM, TLD;
+	PreprocessTable(CIXM, FX, TLM);
+	PreprocessTable(CIXD, FX, TLD);
+	
+	int simfunc = -1;
+	int nM=0, nD=0;
+	map<CAttrRule*, pair<int,int> > invertedSizeMap; 
+	for (unsigned i=0; i<parNon1.size(); ++i)
+	{
+		CAttrRule* car = parNon1[i];
+		if (car->getSimFunc() != simfunc)
+		{
+			nD = CIXD.getInvertedListSize(car);
+			nM = CIXM.getInvertedListSize(car);
+			simfunc = car->getSimFunc();
+		}
+		else
+		{
+			nD += CIXD.getInvertedListSize(car);
+			nM += CIXM.getInvertedListSize(car);
+		}
+		invertedSizeMap.insert(map<CAttrRule*, pair<int,int> >::value_type(car, pair<int,int>(nD,nM)));
+	}
+
+	for (unsigned i=0; i<parNon1.size(); ++i)
+	{
+		bool redundancy = false;
+		 vector<CAttrRule*>& carsM = TLM[parNon1[i]];
+		 for (unsigned j=0; j<carsM.size()&&!redundancy; ++j)
+		 {
+			 if (parNon1[i]->getSimFunc() == carsM[j]->getSimFunc())
+				 continue;
+			vector<CAttrRule*>& carsD = TLD[carsM[j]];
+			for (unsigned k=0; k<carsD.size(); ++k)
+			{
+				if (carsD[k]->getSimFunc() == parNon1[i]->getSimFunc() 
+					&& carsD[k]->getThreshold()>=parNon1[i]->getThreshold())
+				{
+					if (carsD[k] == parNon1[i]
+				 	&& parNon1[i]->getSimFunc() < carsM[j]->getSimFunc() 
+					 && invertedSizeMap[parNon1[i]] == invertedSizeMap[carsM[j]])
+					{
+						break;
+					}
+					redundancy = true;
+					break;
+				}
+			}
+		 }
+		 if (!redundancy)
+			 parNon.push_back(parNon1[i]);
+	}
+	if (verbose)
+		cout << M.size() << "\t" << D.size() << "\t" << cars.size() << "\t" << parNon1.size() << "\t" <<  cars.size()-(parNon1.size()-parNon.size()) << "\t" << parNon.size() << "\t";
+}
+
+void UnARM::PreprocessTable(CInvertedIndex& CIX, ForwardIndex& FX, map<CAttrRule*, vector<CAttrRule*> >& TL)
+{
+	vector<CAttrRule*> maxCars;
+	int simFunc = -1;
+	for (CInvertedIndex::iterator it = CIX.begin(); it!=CIX.end(); CIX.next(it))
+	{
+		if (it->first->getSimFunc()!=simFunc)
+		{
+			simFunc = it->first->getSimFunc();
+			maxCars.push_back(it->first);
+		}
+	}
+
+	vector<CAttrRule*> minCars;
+	simFunc = -1;
+	for (CInvertedIndex::iterator it = CIX.begin(); it!=CIX.end(); CIX.next(it))
+	{
+		if (it->first->getSimFunc()!=simFunc)
+		{
+			simFunc = it->first->getSimFunc();
+			minCars = maxCars;
+		}
+		vector<int>& tps = it->second;
+		for (unsigned i=0; i<tps.size(); ++i)
+		{
+			vector<CAttrRule*>& cars =  FX.getCARs(tps[i]);
+			unsigned j,k;
+			for ( j=0, k=0; j<cars.size()&&k<minCars.size(); )
+			{
+				if(cars[j]->getSimFunc() == minCars[k]->getSimFunc())
+				{
+					if (cars[j]->getThreshold() < minCars[k]->getThreshold()) 
+					{
+						minCars[k] = cars[j];
+					}
+					++j;
+					++k;					
+				}
+				else if (cars[j]->getSimFunc() > minCars[k]->getSimFunc())
+					minCars.erase(minCars.begin()+k);
+				else
+					++j;
+			}
+			if (j<minCars.size())
+			{
+				minCars.erase(minCars.begin()+j,minCars.end());
+			}
+		}
+		TL[ it->first] = minCars;
+	}
+}
+
+bool UnARM::mustSatisfy(const vector<TupleRule>& trs, int id)
+{
+	for (unsigned i=0; i<trs.size(); ++i)
+	{
+		const vector<AttrRule*>& ars = trs[i].getTupleRule();
+		bool satisfied = true;
+		for (unsigned j=0; j<ars.size() && satisfied; ++j)
+		{
+			if (ars[j]->isCertain())
+			{
+				if (!satisfy((CAttrRule*)ars[j], id))
+				{
+					satisfied = false;
+				}
+			}
+			else
+			{
+				CAttrRule ar(ars[j]->getName(), ars[j]->getAttrPos(), 0, 1);
+				if (!satisfy(&ar, id))
+				{
+					satisfied = false;
+				}
+			}
+		}
+		if (satisfied)
+			return true;
+	}
+	return false;
+}
+bool UnARM::mustDisSatisfy(const vector<TupleRule>& trs, int id)
+{
+	bool disSatisfied = true;
+	for (unsigned i=0; i<trs.size(); ++i)
+	{
+		const vector<AttrRule*>& ars = trs[i].getTupleRule();
+		disSatisfied = false;
+		for (unsigned j=0; j<ars.size() && !disSatisfied; ++j)
+		{
+			if (ars[j]->isCertain())
+			{
+				if (!satisfy((CAttrRule*)ars[j], id))
+				{
+					disSatisfied = true;
+				}
+			}
+		}
+		if (!disSatisfied)
+			return false;
+	}
+	return true;
+}
+int UnARM::eliminateSatisfiedTP(vector<int>& M, vector<int>& D, int& c, int& w)
+{
+	c = w = 0;
+	const vector<TupleRule>& trs = trManager.getTRSet();
+	unsigned k=0;
+	for (unsigned i=0; i<M.size(); ++i)
+	{
+		if (mustSatisfy(trs, M[i]))
+			++c;
+		else
+		{
+			assert(k<=i);
+			if (k != i)
+				M[k] = M[i];
+			++k;
+		}
+	}
+	if (k<M.size())
+		M.erase(M.begin()+k, M.end());
+	k = 0;
+	for (unsigned i=0; i<D.size(); ++i)
+	{
+		if (mustSatisfy(trs, D[i]))
+			++w;
+		else
+		{
+			assert(k<=i);
+			if (k != i)
+				D[k] = D[i];
+			++k;
+		}
+	}
+	if (k<D.size())
+		D.erase(D.begin()+k, D.end());
+	return c+w;
+}
+int UnARM::eliminateDissatisfiedTP(vector<int>& M, vector<int>& D)
+{
+	int n = 0;
+	const vector<TupleRule>& trs = trManager.getTRSet();
+	unsigned k=0;
+	for (unsigned i=0; i<M.size(); ++i)
+	{
+		if (mustDisSatisfy(trs, M[i]))
+			++n;
+		else
+		{
+			assert(k<=i);
+			if (k != i)
+				M[k] = M[i];
+			++k;
+		}
+	}
+	if (k<M.size())
+		M.erase(M.begin()+k, M.end());
+	k=0;
+	for (unsigned i=0; i<D.size(); ++i)
+	{
+		if (mustDisSatisfy(trs, D[i]))
+			++n;
+		else
+		{
+			assert(k<=i);
+			if (k != i)
+				D[k] = D[i];
+			++k;
+		}
+	}
+	D.erase(D.begin()+k, D.end());
+	if (k<D.size())
+		D.erase(D.begin()+k, D.end());
+	return n;
+}
+void UnARM::trsSplit(const vector<TupleRule>& trs, vector<TupleRule>& trsc, vector<TupleRule>& trsu)
+{
+	for (unsigned i=0; i<trs.size(); ++i)
+	{
+		const vector<AttrRule*>& ars = trs[i].getTupleRule();
+		bool certain = true;
+		for (unsigned j=0; j<ars.size(); ++j)
+		{
+			if (!ars[j]->isCertain()&&!resultMap.count((UAttrRule*)ars[j]))
+			{
+					certain = false;
+					break;
+			}
+		}
+		if (certain)
+			trsc.push_back(trs[i]);
+		else
+			trsu.push_back(trs[i]);
+	}
+}
+bool cmpQuality(const CAttrRule* ar1, const CAttrRule* ar2)
+{
+	return ar1->getQuality() > ar2->getQuality();
+}
+void UnARM::sortByQuality(vector<vector<CAttrRule*> >& parsNon, vector<int>& M, vector<int>& D)
+{
+	for (unsigned i=0; i<parsNon.size(); ++i)
+	{
+		for (unsigned j=0; j<parsNon[i].size(); ++j)
+		{
+			CAttrRule* ar = parsNon[i][j];
+			int c=0, w=0;
+			satisfy(ar, M, D, c, w);
+			ar->setQuality(obfunc(c,w));
+		}
+		sort(parsNon[i].begin(), parsNon[i].end(), cmpQuality);
+	}
+}
+void UnARM::testRedundancy()
+{
+	op = -1e9;
+	vector<UAttrRule*> uars;
+	trManager.getUARSet(uars);
+	const vector<int>& M = trainData.getMatchingTP();
+	const vector<int>& D= trainData.getNonMatchingTP();
+
+	vector<vector<CAttrRule*> > pars(uars.size());
+	vector<vector<CAttrRule*> > parsNon(uars.size());
+	cout << "Eliminate Redundancy Op" << endl;
+	for (unsigned i=0; i<uars.size(); ++i)
+	{
+		possibleMappingSet(uars[i], M, pars[i]);
+		cout << uars[i]->getName() << "\t";
+		clock_t begin = clock();
+		eliminateRedundancyOp(uars[i], pars[i], M, D, parsNon[i], true); 
+		cout << (clock()-begin)*1.0/CLOCKS_PER_SEC << endl;
+		outputPar(pars[i]);
+		outputPar(parsNon[i]);
+	}
+	cout << "Eliminate Redundancy Naive" << endl;
+	for (unsigned i=0; i<uars.size(); ++i)
+	{
+		possibleMappingSet(uars[i], M, pars[i]);
+		cout << uars[i]->getName() << "\t";
+		parsNon[i].clear();
+		clock_t begin = clock();
+		eliminateRedundancy(uars[i], pars[i], M, D, parsNon[i], true);
+		cout << (clock()-begin)*1.0/CLOCKS_PER_SEC << endl;
+		outputPar(pars[i]);
+		outputPar(parsNon[i]);
+	}
+}
+void UnARM::initResultMap(ResultSet& resultSet)
+{
+	resultMap.clear();
+	ResultSet::iterator it;
+	for (it=resultSet.begin(); it!=resultSet.end(); ++it)
+	{
+		AttrRule* ar = arManager.getAttrRule(it->label);
+		assert(!ar->isCertain());
+		CAttrRule* car = new CAttrRule(it->label,it->name,ar->getAttrPos(), it->simfunc, int(it->threshold*PRECISION));
+		resultMap[(UAttrRule* )ar] = car;
+	}
+}
+void UnARM::testAccuracy(ResultSet& resultSet)
+{
+	ResultSet opResultSet;
+	search(opResultSet);
+	
+	int c=0, w=0;
+	initResultMap(opResultSet);
+	satisfy(trManager.getTRSet(), trainData.getMatchingTP(), trainData.getNonMatchingTP(), c,w);
+	cout << "Optimal" << "\t" << "c " << c << "\t" << "w " << w << "\t" << "obfunc " << op << endl;
+
+	c=0, w=0;
+	initResultMap(resultSet);
+	satisfy(trManager.getTRSet(), trainData.getMatchingTP(), trainData.getNonMatchingTP(), c,w);
+	cout << "Test" << "\t" << "c " << c << "\t" << "w " << w << "\t" << "obfunc " << op << endl;
+}
+
+void UnARM::outputPar(const vector<CAttrRule*>& pars)
+{
+	if (pars.size() == 0)
+		return;
+	int simf = pars[0]->getSimFunc();
+	int n = 1;
+	for (unsigned i=1; i<pars.size(); ++i)
+	{
+		if (pars[i]->getSimFunc() != simf)
+		{
+			cout << simf << " " << n << "\t";
+			n = 1;
+			simf = pars[i]->getSimFunc();
+		}
+		else
+			++n;
+	}
+	cout << simf << " " << n << endl;
+}
+UnARM::~UnARM(void)
+{
+	
+}

@@ -1,0 +1,95 @@
+FoldNum 2
+FoldId 1
+Optimal	c 42	w 1	obfunc 0.94382
+Test	c 36	w 2	obfunc 0.857143
+FoldId 2
+Optimal	c 58	w 0	obfunc 0.983051
+Test	c 52	w 2	obfunc 0.912281
+
+FoldNum 3
+FoldId 1
+Optimal	c 34	w 0	obfunc 0.957746
+Test	c 34	w 2	obfunc 0.931507
+FoldId 2
+Optimal	c 39	w 1	obfunc 0.962963
+Test	c 33	w 1	obfunc 0.88
+FoldId 3
+Optimal	c 26	w 0	obfunc 0.962963
+Test	c 25	w 1	obfunc 0.925926
+
+FoldNum 4
+FoldId 1
+Optimal	c 27	w 0	obfunc 0.964286
+Test	c 25	w 0	obfunc 0.925926
+FoldId 2
+Optimal	c 17	w 0	obfunc 1
+Test	c 17	w 0	obfunc 1
+FoldId 3
+Optimal	c 31	w 1	obfunc 0.939394
+Test	c 27	w 2	obfunc 0.857143
+FoldId 4
+Optimal	c 26	w 1	obfunc 0.981132
+Test	c 25	w 2	obfunc 0.943396
+
+FoldNum 5
+FoldId 1
+Optimal	c 17	w 0	obfunc 0.971429
+Test	c 17	w 0	obfunc 0.971429
+FoldId 2
+Optimal	c 19	w 0	obfunc 1
+Test	c 19	w 1	obfunc 0.974359
+FoldId 3
+Optimal	c 19	w 1	obfunc 0.926829
+Test	c 18	w 3	obfunc 0.857143
+FoldId 4
+Optimal	c 20	w 0	obfunc 0.952381
+Test	c 19	w 1	obfunc 0.904762
+FoldId 5
+Optimal	c 25	w 1	obfunc 0.961538
+Test	c 23	w 0	obfunc 0.938776
+
+FoldNum 6
+FoldId 1
+Optimal	c 14	w 1	obfunc 0.965517
+Test	c 13	w 1	obfunc 0.928571
+FoldId 2
+Optimal	c 21	w 1	obfunc 0.976744
+Test	c 20	w 1	obfunc 0.952381
+FoldId 3
+Optimal	c 18	w 0	obfunc 0.972973
+Test	c 16	w 0	obfunc 0.914286
+FoldId 4
+Optimal	c 13	w 0	obfunc 0.962963
+Test	c 13	w 1	obfunc 0.928571
+FoldId 5
+Optimal	c 20	w 1	obfunc 0.930233
+Test	c 18	w 1	obfunc 0.878049
+FoldId 6
+Optimal	c 16	w 0	obfunc 1
+Test	c 16	w 1	obfunc 0.969697
+
+FoldNum 7
+FoldId 1
+Optimal	c 14	w 0	obfunc 0.933333
+Test	c 12	w 0	obfunc 0.857143
+FoldId 2
+Optimal	c 16	w 0	obfunc 1
+Test	c 16	w 0	obfunc 1
+FoldId 3
+Optimal	c 14	w 0	obfunc 0.965517
+Test	c 13	w 0	obfunc 0.928571
+FoldId 4
+Optimal	c 13	w 0	obfunc 1
+Test	c 10	w 1	obfunc 0.833333
+FoldId 5
+Optimal	c 13	w 0	obfunc 0.962963
+Test	c 13	w 2	obfunc 0.896552
+FoldId 6
+Optimal	c 18	w 0	obfunc 0.947368
+Test	c 17	w 0	obfunc 0.918919
+FoldId 7
+Optimal	c 12	w 0	obfunc 1
+Test	c 12	w 2	obfunc 0.923077
+
+FoldNum 8
+FoldId 1

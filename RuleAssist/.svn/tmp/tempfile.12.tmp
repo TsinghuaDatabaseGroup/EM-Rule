@@ -1,0 +1,140 @@
+# Makefile for a UnARM
+# Written by wjn (2010-07-03)
+# Modified by wjn (2009-07-03)
+
+ALLUnARM = UnARM.o UnARMNaive.o UnARMAdvanced.o UnARMAdvanced2.o UnARMIterative.o UnARMAdvancedQuality.o
+AllSimmetrics = Object.o Simmetrics.o SimValueStore.o SimFuncs.o
+AllRules = AttrRule.o CAttrRule.o UAttrRule.o TupleRuleManager.o AttrRuleManager.o TupleRule.o
+AllObjects = GlobFunc.o TrainData.o ForwardIndex.o CInvertedIndex.o Init.o Parser.o $(ALLUnARM) $(AllSimmetrics) $(AllRules)
+
+
+CC = g++
+
+JAVA_HOME = /usr/lib/jvm/java-6-sun-1.6.0.14
+#JAVA_HOME = /usr/lib/jvm/java-6-sun-1.6.0.06
+
+#42 java-6-sun-1.6.0.14 38 java-6-sun-1.6.0.06
+
+CPPFLAGS = -Wall -O3 \
+	-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
+LDFLAGS = -L$(JAVA_HOME)/jre/lib/i386/ -L$(JAVA_HOME)/jre/lib/i386/client -ljvm
+
+
+All : TestRedundancy TestAccuracy TestAllEfficiency TestObFunc TestTRSet
+
+TestTRSet : TestTRSet.o $(AllObjects)                     
+	$(CC) -o TestTRSet $(LDFLAGS) TestTRSet.o $(AllObjects)
+	
+	
+TestObFunc : TestObFunc.o $(AllObjects)                     
+	$(CC) -o TestObFunc $(LDFLAGS) TestObFunc.o $(AllObjects)
+	
+TestAllEfficiency : TestAllEfficiency.o $(AllObjects)                     
+	$(CC) -o TestAllEfficiency $(LDFLAGS) TestAllEfficiency.o $(AllObjects)
+	 
+TestRedundancy : TestRedundancy.o $(AllObjects)
+	$(CC) -o TestRedundancy $(LDFLAGS) TestRedundancy.o $(AllObjects) 
+
+TestAccuracy : TestAccuracy.o $(AllObjects) 
+	$(CC) -o TestAccuracy $(LDFLAGS) TestAccuracy.o $(AllObjects)
+
+
+
+TestTRSet.o : TestTRSet.cpp  AttrRuleManager.o TupleRuleManager.o Init.o TrainData.o $(ALLUnARM)
+	$(CC) -c -o $@ $(CPPFLAGS) $< 
+
+TestObFunc.o : TestObFunc.cpp  AttrRuleManager.o TupleRuleManager.o Init.o TrainData.o $(ALLUnARM)
+	$(CC) -c -o $@ $(CPPFLAGS) $< 
+
+TestAllEfficiency.o : TestAllEfficiency.cpp  AttrRuleManager.o TupleRuleManager.o Init.o TrainData.o $(ALLUnARM)
+	$(CC) -c -o $@ $(CPPFLAGS) $< 
+	
+TestAccuracy.o : TestAccuracy.cpp  AttrRuleManager.o TupleRuleManager.o Init.o TrainData.o $(ALLUnARM)
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+TestRedundancy.o : TestRedundancy.cpp AttrRuleManager.o TupleRuleManager.o Init.o TrainData.o UnARMNaive.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+
+#<-------------- ALLUnARM --------------------
+
+UnARMIterative.o : UnARMIterative.cpp UnARMIterative.h UnARM.o 
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+UnARMAdvancedQuality.o : UnARMAdvancedQuality.cpp UnARMAdvancedQuality.h UnARM.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+		
+UnARMAdvanced2.o : UnARMAdvanced2.cpp UnARMAdvanced2.h UnARM.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+UnARMAdvanced.o : UnARMAdvanced.cpp UnARMAdvanced.h UnARM.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+UnARMNaive.o : UnARMNaive.cpp UnARMNaive.h UnARM.o 
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+		
+UnARM.o : UnARM.cpp UnARM.h TupleRuleManager.o AttrRuleManager.o TrainData.o SimValueStore.o GlobFunc.o CInvertedIndex.o ForwardIndex.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+#------------------------------------------->
+	
+ForwardIndex.o : ForwardIndex.cpp ForwardIndex.h CAttrRule.o CInvertedIndex.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+CInvertedIndex.o : CInvertedIndex.cpp CInvertedIndex.h CAttrRule.o GlobFunc.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+
+Init.o : Init.cpp Init.h Parser.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+Parser.o : Parser.cpp Parser.h TupleRuleManager.o AttrRuleManager.o TrainData.o GlobFunc.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+#------------------ AllRules ---------------->
+	
+TupleRuleManager.o : TupleRuleManager.cpp TupleRuleManager.h TupleRule.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+TupleRule.o : TupleRule.cpp TupleRule.h AttrRule.o CAttrRule.o UAttrRule.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+		
+AttrRuleManager.o : AttrRuleManager.cpp AttrRuleManager.h AttrRule.o CAttrRule.o UAttrRule.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+UAttrRule.o : UAttrRule.cpp UAttrRule.h AttrRule.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+CAttrRule.o : CAttrRule.cpp CAttrRule.h AttrRule.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+		
+AttrRule.o : AttrRule.cpp AttrRule.h
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+#------------------------------------------->
+ 
+#<----------------- AllSimmetrics ----------------------
+
+SimValueStore.o : SimValueStore.cpp SimValueStore.h SimFuncs.o TrainData.o GlobFunc.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+SimFuncs.o : SimFuncs.cpp SimFuncs.h Simmetrics.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+			
+Simmetrics.o : Simmetrics.cpp Simmetrics.h Object.o
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+	
+Object.o : Object.cpp Object.h
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+#------------------------------------------------------>
+	
+TrainData.o : TrainData.cpp TrainData.h
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+			
+GlobFunc.o : GlobFunc.cpp GlobFunc.h
+	$(CC) -c -o $@ $(CPPFLAGS) $<
+
+	
+clean :
+	rm *.o 

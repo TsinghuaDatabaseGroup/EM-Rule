@@ -1,0 +1,26 @@
+FoldNum 2
+FoldId 1
+Optimal	c 59	w 0	obfunc 0.975207
+TestOp 	c 55	w 0	obfunc 0.940171
+TestLOP	c 49	w 0	obfunc 0.882883
+TestExa	c 45	w 0	obfunc 0.841121
+FoldId 2
+Optimal	c 43	w 0	obfunc 0.988506
+TestOp 	c 43	w 4	obfunc 0.945055
+TestLOP	c 33	w 0	obfunc 0.857143
+TestExa	c 31	w 0	obfunc 0.826667
+
+FoldNum 3
+FoldId 1
+Optimal	c 37	w 0	obfunc 1
+TestOp 	c 33	w 0	obfunc 0.942857
+TestLOP	c 29	w 0	obfunc 0.878788
+TestExa	c 27	w 0	obfunc 0.84375
+FoldId 2
+Optimal	c 37	w 0	obfunc 0.986667
+TestOp 	c 34	w 0	obfunc 0.944444
+TestLOP	c 30	w 0	obfunc 0.882353
+TestExa	c 20	w 0	obfunc 0.689655
+
+FoldNum 4
+FoldId 1

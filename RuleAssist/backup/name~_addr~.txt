@@ -1,0 +1,180 @@
+FoldNum 2
+FoldId 1
+Optimal	c 59	w 1	obfunc 0.991597
+Test	c 55	w 0	obfunc 0.964912
+FoldId 2
+Optimal	c 47	w 0	obfunc 1
+Test	c 42	w 2	obfunc 0.923077
+
+FoldNum 3
+FoldId 1
+Optimal	c 39	w 1	obfunc 0.987342
+Test	c 36	w 0	obfunc 0.96
+FoldId 2
+Optimal	c 35	w 0	obfunc 1
+Test	c 33	w 1	obfunc 0.956522
+FoldId 3
+Optimal	c 32	w 0	obfunc 1
+Test	c 32	w 3	obfunc 0.955224
+
+FoldNum 4
+FoldId 1
+Optimal	c 23	w 0	obfunc 1
+Test	c 21	w 1	obfunc 0.933333
+FoldId 2
+Optimal	c 32	w 1	obfunc 0.984615
+Test	c 30	w 2	obfunc 0.9375
+FoldId 3
+Optimal	c 28	w 0	obfunc 1
+Test	c 27	w 0	obfunc 0.981818
+FoldId 4
+Optimal	c 23	w 0	obfunc 1
+Test	c 21	w 0	obfunc 0.954545
+
+FoldNum 5
+FoldId 1
+Optimal	c 23	w 0	obfunc 1
+Test	c 19	w 0	obfunc 0.904762
+FoldId 2
+Optimal	c 14	w 0	obfunc 1
+Test	c 14	w 1	obfunc 0.965517
+FoldId 3
+Optimal	c 24	w 0	obfunc 1
+Test	c 24	w 1	obfunc 0.979592
+FoldId 4
+Optimal	c 24	w 0	obfunc 1
+Test	c 23	w 0	obfunc 0.978723
+FoldId 5
+Optimal	c 21	w 0	obfunc 1
+Test	c 19	w 0	obfunc 0.95
+
+FoldNum 6
+FoldId 1
+Optimal	c 21	w 0	obfunc 1
+Test	c 20	w 0	obfunc 0.97561
+FoldId 2
+Optimal	c 15	w 0	obfunc 1
+Test	c 13	w 1	obfunc 0.896552
+FoldId 3
+Optimal	c 14	w 1	obfunc 0.965517
+Test	c 12	w 1	obfunc 0.888889
+FoldId 4
+Optimal	c 18	w 0	obfunc 1
+Test	c 18	w 0	obfunc 1
+FoldId 5
+Optimal	c 17	w 0	obfunc 1
+Test	c 16	w 0	obfunc 0.969697
+FoldId 6
+Optimal	c 20	w 0	obfunc 1
+Test	c 19	w 0	obfunc 0.974359
+
+FoldNum 7
+FoldId 1
+Optimal	c 15	w 0	obfunc 1
+Test	c 11	w 0	obfunc 0.846154
+FoldId 2
+Optimal	c 9	w 0	obfunc 1
+Test	c 9	w 1	obfunc 0.947368
+FoldId 3
+Optimal	c 16	w 0	obfunc 1
+Test	c 15	w 0	obfunc 0.967742
+FoldId 4
+Optimal	c 18	w 0	obfunc 1
+Test	c 17	w 1	obfunc 0.944444
+FoldId 5
+Optimal	c 18	w 0	obfunc 1
+Test	c 18	w 0	obfunc 1
+FoldId 6
+Optimal	c 15	w 0	obfunc 1
+Test	c 14	w 0	obfunc 0.965517
+FoldId 7
+Optimal	c 15	w 0	obfunc 1
+Test	c 15	w 0	obfunc 1
+
+FoldNum 8
+FoldId 1
+Optimal	c 10	w 0	obfunc 1
+Test	c 10	w 0	obfunc 1
+FoldId 2
+Optimal	c 20	w 1	obfunc 0.97561
+Test	c 18	w 1	obfunc 0.923077
+FoldId 3
+Optimal	c 14	w 0	obfunc 1
+Test	c 14	w 3	obfunc 0.903226
+FoldId 4
+Optimal	c 15	w 0	obfunc 1
+Test	c 12	w 0	obfunc 0.888889
+FoldId 5
+Optimal	c 13	w 0	obfunc 1
+Test	c 13	w 0	obfunc 1
+FoldId 6
+Optimal	c 14	w 0	obfunc 1
+Test	c 13	w 1	obfunc 0.928571
+FoldId 7
+Optimal	c 14	w 0	obfunc 1
+Test	c 14	w 0	obfunc 1
+FoldId 8
+Optimal	c 6	w 0	obfunc 1
+Test	c 4	w 0	obfunc 0.8
+
+FoldNum 9
+FoldId 1
+Optimal	c 11	w 0	obfunc 1
+Test	c 11	w 2	obfunc 0.916667
+FoldId 2
+Optimal	c 11	w 0	obfunc 1
+Test	c 9	w 0	obfunc 0.9
+FoldId 3
+Optimal	c 8	w 0	obfunc 1
+Test	c 8	w 0	obfunc 1
+FoldId 4
+Optimal	c 12	w 0	obfunc 1
+Test	c 11	w 0	obfunc 0.956522
+FoldId 5
+Optimal	c 20	w 0	obfunc 1
+Test	c 18	w 0	obfunc 0.947368
+FoldId 6
+Optimal	c 10	w 0	obfunc 1
+Test	c 10	w 2	obfunc 0.909091
+FoldId 7
+Optimal	c 13	w 0	obfunc 1
+Test	c 10	w 0	obfunc 0.869565
+FoldId 8
+Optimal	c 11	w 0	obfunc 1
+Test	c 10	w 0	obfunc 0.952381
+FoldId 9
+Optimal	c 10	w 0	obfunc 1
+Test	c 7	w 0	obfunc 0.823529
+
+FoldNum 10
+FoldId 1
+Optimal	c 10	w 0	obfunc 1
+Test	c 10	w 0	obfunc 1
+FoldId 2
+Optimal	c 18	w 0	obfunc 1
+Test	c 16	w 0	obfunc 0.941176
+FoldId 3
+Optimal	c 10	w 0	obfunc 1
+Test	c 8	w 0	obfunc 0.888889
+FoldId 4
+Optimal	c 12	w 0	obfunc 1
+Test	c 12	w 0	obfunc 1
+FoldId 5
+Optimal	c 11	w 0	obfunc 1
+Test	c 11	w 0	obfunc 1
+FoldId 6
+Optimal	c 10	w 0	obfunc 1
+Test	c 9	w 0	obfunc 0.947368
+FoldId 7
+Optimal	c 8	w 0	obfunc 1
+Test	c 8	w 0	obfunc 1
+FoldId 8
+Optimal	c 12	w 0	obfunc 1
+Test	c 11	w 1	obfunc 0.916667
+FoldId 9
+Optimal	c 9	w 0	obfunc 1
+Test	c 8	w 0	obfunc 0.941176
+FoldId 10
+Optimal	c 6	w 0	obfunc 1
+Test	c 5	w 1	obfunc 0.833333
+

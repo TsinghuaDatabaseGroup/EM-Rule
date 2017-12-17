@@ -1,0 +1,125 @@
+FoldNum 2
+FoldId 1
++
+carla e. brodley and paul e. utgoff.*	*multivariate decision trees.*	*machine learning,*	**	**	**	*1995.*	*19*	*45-77,*	*
+carla brodley and paul utgoff.*	*"linear machine decision trees,"*	**	**	**	**	**	**	**	*
+
++
+mitchell, t., utgoff, p. & banerji, r.*	*learning by experimentation: acquiring and refining problem-solving heuristics,*	*in "machine learning, an artificial intelligence approach, volume i",*	*palo alto, california:*	*tioga press.*	**	*(1983),*	**	**	*
+t. mitchell, utgoff, p. and banerji, r.,*	*"learning by experimentation: acquiring and refining problemsolving heuristics,"*	*in machine learning:  an artificial intelligence approach,*	**	*j.*	*r. michalski,*	**	**	**	*
+
++
+pazzani, m. , and kibler, d.,*	*the utility of knowledge in inductive learning,*	*machine learning,*	**	**	**	*1992.*	*9*	*57-94,*	*
+pazzani, m. and kibler, d.*	*the utility of knowledge in inductive learning.*	*machine learning journal,*	**	**	**	*(1992).*	*9(1)*	*57-94.*	*
+
++
+p.e. utgoff.*	*shift of bias for inductive concept-learning.*	*machine learning: an artificial intelligence approach,*	**	*morgan kaufmann,*	*in r.s michalski, j.g. carbonell, and t.m. mitchell, editors,*	*1986.*	**	*pages 107-148.*	*
+utgoff, p. e.*	*shift of bias for inductive concept learning.*	*machine learning: an artificial intelligence approach.*	*san mateo, ca:*	*morgan kaufmann.*	*in michalski, carbonell & mitchell (eds.),*	*(1986).*	**	**	*
+
++
+m. pazzani and d. kibler,*	*"the utility of knowledge in inductive learning,"*	*machine learning,*	**	**	**	*1992.*	*vol.9,*	*pp. 57-94,*	*
+pazzani, m. & kibler, d.*	*the utility of knowledge in inductive learning.*	*machine learning*	**	**	**	**	*9(1),*	*57-94.*	*
+
+Optimal	c 31	w 0	obfunc 0.925373
+Test	c 27	w 0	obfunc 0.857143
+
+FoldNum 3
+FoldId 1
++
+d. aha, d. kibler, and m. albert,*	*"instance-based learning algorithms,"*	*machine learning,*	**	**	**	*1991.*	*vol. 6,*	*pp. 37-66,*	*
+aha, d., kibler, d. and albert, m.:*	*instance-based learning algorithms.*	*machine learning*	**	**	**	*(1991)*	*6,*	*37-66.*	*
+
++
+michael pazzani and dennis kibler.*	*the utility of knowledge in inductive learning.*	*machine learning,*	**	**	**	*1992*	*(9)*	*:57-94,*	*
+m. pazzani & d.*	*kibler the utility of knowledge in inductive learning machine learning,*	**	**	**	**	*1992.*	*9(1):*	*57-94,*	*
+
++
+brodley, c. e., utgoff, p. e.*	*multivariate decision trees,*	*in machine learning,*	**	**	**	*(1995).*	*19,*	*45-77.*	*
+brodley, c.e., and utgoff, p.e.*	*"multivariate decision trees",*	*machine learning,*	**	**	**	*(1995),*	*19,*	*pp. 45-77.*	*
+
++
+utgoff, p. e.*	*shift of bias for inductive concept learning.*	**	**	**	*in r. s. michalski, j. g.*	*1986.*	**	**	*
+p e utgoff.*	*shift of bias for inductive concept learning.*	*machine learning: an artificial intelligence approach*	**	*morgan kaufmann,*	*in r s michalski, j g carbonell, and t m mitchell, editors,*	*1986.*	*(volume 2).*	**	*
+
+Optimal	c 25	w 0	obfunc 0.925926
+Test	c 23	w 1	obfunc 0.867925
+
+FoldNum 4
+FoldId 1
++
+mitchell, t., utgoff, p. & banerji, r.*	*learning by experimentation: acquiring and refining problem-solving heuristics,*	*in "machine learning, an artificial intelligence approach, volume i",*	*palo alto, california:*	*tioga press.*	**	*(1983),*	**	**	*
+t. mitchell, utgoff, p. and banerji, r.,*	*"learning by experimentation: acquiring and refining problemsolving heuristics,"*	*in machine learning:  an artificial intelligence approach,*	**	*j.*	*r. michalski,*	**	**	**	*
+
++
+m. pazzani and d. kibler.*	*the utility of background knowledge in inductive learning.*	*machine learning,*	**	**	**	*1992.*	*9*	*57-94,*	*
+m. pazzani & d.*	*kibler the utility of knowledge in inductive learning machine learning,*	**	**	**	**	*1992.*	*9(1):*	*57-94,*	*
+
++
+carla e. brodley and paul e. utgoff.*	*multivariate decision trees.*	*machine learning,*	**	**	**	*1995.*	*19*	*45-77,*	*
+carla brodley and paul utgoff.*	*"linear machine decision trees,"*	**	**	**	**	**	**	**	*
+
+Optimal	c 20	w 0	obfunc 0.930233
+Test	c 17	w 0	obfunc 0.85
+
+FoldNum 5
+FoldId 1
++
+p.e. utgoff.*	*shift of bias for inductive concept-learning.*	*machine learning: an artificial intelligence approach,*	**	*morgan kaufmann,*	*in r.s michalski, j.g. carbonell, and t.m. mitchell, editors,*	*1986.*	**	*pages 107-148.*	*
+utgoff, p. e.*	*shift of bias for inductive concept learning.*	*machine learning: an artificial intelligence approach.*	*san mateo, ca:*	*morgan kaufmann.*	*in michalski, carbonell & mitchell (eds.),*	*(1986).*	**	**	*
+
++
+utgoff, p., e.,*	*perceptron trees: a case study in hybrid concept representations.*	*connection science,*	**	**	**	*(1989)*	*volume 1.*	**	*
+utgoff, p.*	*perceptron trees: a case study in hybrid concept representation.*	*connection science. set curves set curves set curves set curves curves curves*	**	**	**	*(1989).*	**	**	*
+
++
+michael pazzani and dennis kibler.*	*the utility of knowledge in inductive learning.*	*machine learning,*	**	**	**	*1992*	*(9)*	*:57-94,*	*
+m. pazzani & d.*	*kibler the utility of knowledge in inductive learning machine learning,*	**	**	**	**	*1992.*	*9(1):*	*57-94,*	*
+
+-
+aha, d. w., d. kibler, & albert m. k.*	*instance-based learning algorithms.*	*machine learning*	**	**	**	*(1991).*	*6 (1),*	*37-66.*	*
+d. w. aha, d. kibler & m. k. albert.*	*(1991) instance-based learning algorithms.*	*machine learning*	**	**	**	**	*6(1)*	*37-66.*	*
+
+Optimal	c 17	w 1	obfunc 0.894737
+Test	c 17	w 2	obfunc 0.871795
+
+FoldNum 6
+FoldId 1
++
+michael pazzani and dennis kibler.*	*the utility of knowledge in inductive learning.*	*machine learning,*	**	**	**	*1992*	*(9)*	*:57-94,*	*
+m. pazzani & d.*	*kibler the utility of knowledge in inductive learning machine learning,*	**	**	**	**	*1992.*	*9(1):*	*57-94,*	*
+
+-
+d. ruby and d. kibler.*	*learning subgoal sequences for planning.*	*in proceedings of aaai-91.*	**	*aaai press,*	**	*1991.*	**	**	*
+d. ruby and d. kibler.*	*learning subgoal sequences for planning.*	*in proceedings of ijcai-89,*	**	**	**	*1989.*	**	*pages 609-614,*	*
+
+Optimal	c 17	w 1	obfunc 0.944444
+Test	c 17	w 3	obfunc 0.894737
+
+FoldNum 7
+FoldId 1
++
+d. aha, d. kibler, and m. albert,*	*"instance-based learning algorithms,"*	*machine learning,*	**	**	**	*1991.*	*vol. 6,*	*pp. 37-66,*	*
+aha, d., kibler, d. and albert, m.:*	*instance-based learning algorithms.*	*machine learning*	**	**	**	*(1991)*	*6,*	*37-66.*	*
+
++
+pazzani, m. , and kibler, d.,*	*the utility of knowledge in inductive learning,*	*machine learning,*	**	**	**	*1992.*	*9*	*57-94,*	*
+pazzani, m. and kibler, d.*	*the utility of knowledge in inductive learning.*	*machine learning journal,*	**	**	**	*(1992).*	*9(1)*	*57-94.*	*
+
+Optimal	c 13	w 0	obfunc 0.928571
+Test	c 12	w 0	obfunc 0.888889
+
+FoldNum 8
+FoldId 1
+Optimal	c 12	w 0	obfunc 1
+Test	c 12	w 0	obfunc 1
+
+FoldNum 9
+FoldId 1
+Optimal	c 10	w 0	obfunc 1
+Test	c 10	w 0	obfunc 1
+
+FoldNum 10
+FoldId 1
+Optimal	c 10	w 0	obfunc 1
+Test	c 9	w 0	obfunc 0.947368
+

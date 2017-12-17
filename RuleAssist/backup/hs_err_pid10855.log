@@ -1,0 +1,229 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb763ed35, pid=10855, tid=3074475712
+#
+# JRE version: 6.0_14-b08
+# Java VM: Java HotSpot(TM) Client VM (14.0-b16 mixed mode, sharing linux-x86 )
+# Problematic frame:
+# C  [libstdc++.so.6+0x94d35]  _ZNSsC1ERKSs+0x15
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08074000):  JavaThread "main" [_thread_in_native, id=10855, stack(0xbfb65000,0xbfbb5000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000c
+
+Registers:
+EAX=0x0000000c, EBX=0xb7695ff4, ECX=0x080c7e10, EDX=0x080c45d0
+ESP=0xbfbb3f80, EBP=0xbfbb3fa8, ESI=0x080c45e1, EDI=0x080c47c9
+EIP=0xb763ed35, CR2=0x0000000c, EFLAGS=0x00010292
+
+Top of Stack: (sp=0xbfbb3f80)
+0xbfbb3f80:   bfbb4008 bfbb4008 bfbb3fa8 0806750d
+0xbfbb3f90:   080c42e0 08194d70 080c76cc bfbb4140
+0xbfbb3fa0:   bfbb40bc 00000014 bfbb4038 08052bfb
+0xbfbb3fb0:   bfbb4024 0000000c bfbb4038 0804b85e
+0xbfbb3fc0:   080c50a0 00000009 00000005 000000a0
+0xbfbb3fd0:   00000014 bfbb40d4 bfbb40e4 00000005
+0xbfbb3fe0:   080c45dc 00000005 080c4a98 080c45dc
+0xbfbb3ff0:   00000005 080c4a98 00000000 00000000 
+
+Instructions: (pc=0xb763ed35)
+0xb763ed25:   ec 24 8b 45 0c e8 c8 dd fa ff 81 c3 c5 72 05 00
+0xb763ed35:   8b 10 83 ea 0c 8b 42 08 85 c0 78 16 3b 93 34 fd 
+
+Stack: [0xbfb65000,0xbfbb5000],  sp=0xbfbb3f80,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libstdc++.so.6+0x94d35]  _ZNSsC1ERKSs+0x15
+C  [TestAccuracy+0xabfb]
+C  [TestAccuracy+0x1ebb]  __gxx_personality_v0+0x37f
+C  [TestAccuracy+0x28f5]
+C  [libc.so.6+0x16450]  __libc_start_main+0xe0
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x080ad000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=10861, stack(0xb4cc3000,0xb4d14000)]
+  0x080ab400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=10860, stack(0xb4d14000,0xb4d95000)]
+  0x080a9800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=10859, stack(0xb4d95000,0xb4de6000)]
+  0x0809b800 JavaThread "Finalizer" daemon [_thread_blocked, id=10858, stack(0xb4faf000,0xb5000000)]
+  0x0809a000 JavaThread "Reference Handler" daemon [_thread_blocked, id=10857, stack(0xb515b000,0xb51ac000)]
+=>0x08074000 JavaThread "main" [_thread_in_native, id=10855, stack(0xbfb65000,0xbfbb5000)]
+
+Other Threads:
+  0x08098400 VMThread [stack: 0xb51ac000,0xb522d000] [id=10856]
+  0x080af000 WatcherThread [stack: 0xb4c42000,0xb4cc3000] [id=10862]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 960K, used 307K [0x877b0000, 0x878b0000, 0x88180000)
+  eden space 896K,  34% used [0x877b0000, 0x877fcd00, 0x87890000)
+  from space 64K,   0% used [0x87890000, 0x87890000, 0x878a0000)
+  to   space 64K,   0% used [0x878a0000, 0x878a0000, 0x878b0000)
+ tenured generation   total 4096K, used 0K [0x88180000, 0x88580000, 0x8f7b0000)
+   the space 4096K,   0% used [0x88180000, 0x88180000, 0x88180200, 0x88580000)
+ compacting perm gen  total 12288K, used 43K [0x8f7b0000, 0x903b0000, 0x937b0000)
+   the space 12288K,   0% used [0x8f7b0000, 0x8f7badc0, 0x8f7bae00, 0x903b0000)
+    ro space 8192K,  74% used [0x937b0000, 0x93da9cc8, 0x93da9e00, 0x93fb0000)
+    rw space 12288K,  59% used [0x93fb0000, 0x946c7540, 0x946c7600, 0x94bb0000)
+
+Dynamic libraries:
+08048000-0806e000 r-xp 00000000 08:05 2809926    /home/jnwang/RuleAssist/code/RuleAssist/backup/TestAccuracy
+0806e000-0806f000 rw-p 00025000 08:05 2809926    /home/jnwang/RuleAssist/code/RuleAssist/backup/TestAccuracy
+0806f000-0819f000 rw-p 0806f000 00:00 0          [heap]
+877b0000-878b0000 rwxp 877b0000 00:00 0 
+878b0000-88180000 rwxp 878b0000 00:00 0 
+88180000-88580000 rwxp 88180000 00:00 0 
+88580000-8f7b0000 rwxp 88580000 00:00 0 
+8f7b0000-903b0000 rwxp 8f7b0000 00:00 0 
+903b0000-937b0000 rwxp 903b0000 00:00 0 
+937b0000-93daa000 r--s 00001000 08:01 860674     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/classes.jsa
+93daa000-93fb0000 rwxp 93daa000 00:00 0 
+93fb0000-946c8000 rw-p 005fb000 08:01 860674     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/classes.jsa
+946c8000-94bb0000 rwxp 946c8000 00:00 0 
+94bb0000-94c8e000 rw-p 00d13000 08:01 860674     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/classes.jsa
+94c8e000-94fb0000 rwxp 94c8e000 00:00 0 
+94fb0000-94fb8000 r-xs 00df1000 08:01 860674     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/classes.jsa
+94fb8000-953b0000 rwxp 94fb8000 00:00 0 
+b4c42000-b4c43000 ---p b4c42000 00:00 0 
+b4c43000-b4cc3000 rwxp b4c43000 00:00 0 
+b4cc3000-b4cc6000 ---p b4cc3000 00:00 0 
+b4cc6000-b4d14000 rwxp b4cc6000 00:00 0 
+b4d14000-b4d17000 ---p b4d14000 00:00 0 
+b4d17000-b4d95000 rwxp b4d17000 00:00 0 
+b4d95000-b4d98000 ---p b4d95000 00:00 0 
+b4d98000-b4de6000 rwxp b4d98000 00:00 0 
+b4de6000-b4e19000 rw-p b4de6000 00:00 0 
+b4e19000-b4faf000 r--s 02fb1000 08:01 674101     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/rt.jar
+b4faf000-b4fb2000 ---p b4faf000 00:00 0 
+b4fb2000-b5000000 rwxp b4fb2000 00:00 0 
+b5000000-b5050000 rw-p b5000000 00:00 0 
+b5050000-b5100000 ---p b5050000 00:00 0 
+b5111000-b5115000 r--s 0001d000 08:05 2810005    /home/jnwang/RuleAssist/code/RuleAssist/backup/simmetrics.jar
+b5115000-b511c000 r--s 00000000 08:01 518117     /usr/lib/gconv/gconv-modules.cache
+b511c000-b515b000 r--p 00000000 08:01 540674     /usr/lib/locale/en_US.utf8/LC_CTYPE
+b515b000-b515e000 ---p b515b000 00:00 0 
+b515e000-b51ac000 rwxp b515e000 00:00 0 
+b51ac000-b51ad000 ---p b51ac000 00:00 0 
+b51ad000-b5234000 rwxp b51ad000 00:00 0 
+b5234000-b524e000 rwxp b5234000 00:00 0 
+b524e000-b5251000 rwxp b524e000 00:00 0 
+b5251000-b528a000 rwxp b5251000 00:00 0 
+b528a000-b528b000 rwxp b528a000 00:00 0 
+b528b000-b528e000 rwxp b528b000 00:00 0 
+b528e000-b5291000 rwxp b528e000 00:00 0 
+b5291000-b52ca000 rwxp b5291000 00:00 0 
+b52ca000-b52d0000 rwxp b52ca000 00:00 0 
+b52d0000-b52ea000 rwxp b52d0000 00:00 0 
+b52ea000-b52f7000 rwxp b52ea000 00:00 0 
+b52f7000-b5375000 rwxp b52f7000 00:00 0 
+b5375000-b53f5000 rwxp b5375000 00:00 0 
+b53f5000-b7375000 rwxp b53f5000 00:00 0 
+b7375000-b7384000 r-xp 00000000 08:01 852552     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libzip.so
+b7384000-b7386000 rw-p 0000e000 08:01 852552     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libzip.so
+b7386000-b738e000 rw-s 00000000 08:01 1581073    /tmp/hsperfdata_jnwang/10855
+b738e000-b7397000 r-xp 00000000 08:01 565413     /lib/tls/i686/cmov/libnss_files-2.7.so
+b7397000-b7399000 rw-p 00008000 08:01 565413     /lib/tls/i686/cmov/libnss_files-2.7.so
+b7399000-b73a1000 r-xp 00000000 08:01 565415     /lib/tls/i686/cmov/libnss_nis-2.7.so
+b73a1000-b73a3000 rw-p 00007000 08:01 565415     /lib/tls/i686/cmov/libnss_nis-2.7.so
+b73a3000-b73aa000 r-xp 00000000 08:01 565410     /lib/tls/i686/cmov/libnss_compat-2.7.so
+b73aa000-b73ac000 rw-p 00006000 08:01 565410     /lib/tls/i686/cmov/libnss_compat-2.7.so
+b73ac000-b73b3000 rwxp b73ac000 00:00 0 
+b73b3000-b73b9000 r-xp 00000000 08:01 852537     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/native_threads/libhpi.so
+b73b9000-b73ba000 rw-p 00006000 08:01 852537     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/native_threads/libhpi.so
+b73ba000-b73ce000 r-xp 00000000 08:01 565409     /lib/tls/i686/cmov/libnsl-2.7.so
+b73ce000-b73d0000 rw-p 00013000 08:01 565409     /lib/tls/i686/cmov/libnsl-2.7.so
+b73d0000-b73d2000 rw-p b73d0000 00:00 0 
+b73d2000-b73f5000 r-xp 00000000 08:01 852549     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libjava.so
+b73f5000-b73f7000 rw-p 00023000 08:01 852549     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libjava.so
+b73f7000-b7402000 r-xp 00000000 08:01 852548     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libverify.so
+b7402000-b7403000 rw-p 0000b000 08:01 852548     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/libverify.so
+b7403000-b740a000 r-xp 00000000 08:01 565421     /lib/tls/i686/cmov/librt-2.7.so
+b740a000-b740c000 rw-p 00006000 08:01 565421     /lib/tls/i686/cmov/librt-2.7.so
+b740c000-b740e000 rw-p b740c000 00:00 0 
+b740e000-b7410000 r-xp 00000000 08:01 565405     /lib/tls/i686/cmov/libdl-2.7.so
+b7410000-b7412000 rw-p 00001000 08:01 565405     /lib/tls/i686/cmov/libdl-2.7.so
+b7412000-b7426000 r-xp 00000000 08:01 565418     /lib/tls/i686/cmov/libpthread-2.7.so
+b7426000-b7428000 rw-p 00013000 08:01 565418     /lib/tls/i686/cmov/libpthread-2.7.so
+b7428000-b742a000 rw-p b7428000 00:00 0 
+b742a000-b7573000 r-xp 00000000 08:01 565402     /lib/tls/i686/cmov/libc-2.7.so
+b7573000-b7574000 r--p 00149000 08:01 565402     /lib/tls/i686/cmov/libc-2.7.so
+b7574000-b7576000 rw-p 0014a000 08:01 565402     /lib/tls/i686/cmov/libc-2.7.so
+b7576000-b7579000 rw-p b7576000 00:00 0 
+b7579000-b7583000 r-xp 00000000 08:01 565264     /lib/libgcc_s.so.1
+b7583000-b7584000 rw-p 0000a000 08:01 565264     /lib/libgcc_s.so.1
+b7584000-b75a7000 r-xp 00000000 08:01 565407     /lib/tls/i686/cmov/libm-2.7.so
+b75a7000-b75a9000 rw-p 00023000 08:01 565407     /lib/tls/i686/cmov/libm-2.7.so
+b75a9000-b75aa000 rw-p b75a9000 00:00 0 
+b75aa000-b7692000 r-xp 00000000 08:01 517044     /usr/lib/libstdc++.so.6.0.9
+b7692000-b7695000 r--p 000e8000 08:01 517044     /usr/lib/libstdc++.so.6.0.9
+b7695000-b7697000 rw-p 000eb000 08:01 517044     /usr/lib/libstdc++.so.6.0.9
+b7697000-b769d000 rw-p b7697000 00:00 0 
+b769d000-b76a2000 rwxp b769d000 00:00 0 
+b76a2000-b76a3000 rw-p b76a2000 00:00 0 
+b76a3000-b76a4000 r--p b76a3000 00:00 0 
+b76a4000-b7b09000 r-xp 00000000 08:01 852543     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/libjvm.so
+b7b09000-b7b29000 rw-p 00465000 08:01 852543     /usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client/libjvm.so
+b7b29000-b7f4b000 rw-p b7b29000 00:00 0 
+b7f4b000-b7f4c000 r-xp b7f4b000 00:00 0          [vdso]
+b7f4c000-b7f66000 r-xp 00000000 08:01 565265     /lib/ld-2.7.so
+b7f66000-b7f68000 rw-p 00019000 08:01 565265     /lib/ld-2.7.so
+bfb65000-bfb68000 ---p bfb65000 00:00 0 
+bfb68000-bfbb5000 rwxp bffb3000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xmx128m -Verbose:gc 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-1.5.0-sun
+CLASSPATH=/usr/lib/jvm/java-1.5.0-sun-1.5.0.16/jre/lib:/usr/lib/jvm/java-1.5.0-sun/lib:/usr/lib/jvm/java-1.5.0-sun/jre/lib
+PATH=/home/jnwang/apache-ant-1.7.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/lib/jvm/java-1.5.0-sun/bin
+LD_LIBRARY_PATH=:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/i386/client
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x3fc070], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x3fc070], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x325d30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x325d30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x325d30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x325d30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x328920], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x328650], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x328650], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x328650], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x328650], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:lenny/sid
+
+uname:Linux 2.6.24-24-server #1 SMP Wed Apr 15 16:36:01 UTC 2009 i686
+libc:glibc 2.7 NPTL 2.7 
+rlimit: STACK 8192k, CORE 0k, NPROC 71680, NOFILE 1024, AS infinity
+load average:0.20 0.25 0.19
+
+CPU:total 8 (4 cores per cpu, 1 threads per core) family 6 model 23 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1
+
+Memory: 4k page, physical 8306696k(1676908k free), swap 9213236k(9175384k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.0-b16) for linux-x86 JRE (1.6.0_14-b08), built on May 21 2009 02:01:47 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Wed Jul  7 13:20:18 2010
+elapsed time: 0 seconds
+

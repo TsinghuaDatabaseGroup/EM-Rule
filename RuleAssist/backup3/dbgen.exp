@@ -1,0 +1,289 @@
+TrainFile : ../../data/dbgen.format.train.input	RuleFile: ../../data/dbgen.rules.accuracy
+FoldNum 2
+FoldId 1
+Optimal	c 1286	w 0	obfunc 0.970566
+TestOp 	c 1286	w 0	obfunc 0.970566
+TestLOP	c 1254	w 0	obfunc 0.957983
+TestExa	c 699	w 0	obfunc 0.677654
+FoldId 2
+Optimal	c 1234	w 0	obfunc 0.975494
+TestOp 	c 1234	w 0	obfunc 0.975494
+TestLOP	c 1199	w 0	obfunc 0.961122
+TestExa	c 704	w 0	obfunc 0.704
+
+FoldNum 3
+FoldId 1
+Optimal	c 861	w 0	obfunc 0.976744
+TestOp 	c 861	w 0	obfunc 0.976744
+TestLOP	c 837	w 0	obfunc 0.962622
+TestExa	c 481	w 0	obfunc 0.695589
+FoldId 2
+Optimal	c 864	w 0	obfunc 0.976271
+TestOp 	c 864	w 0	obfunc 0.976271
+TestLOP	c 836	w 0	obfunc 0.959816
+TestExa	c 467	w 0	obfunc 0.680262
+FoldId 3
+Optimal	c 794	w 0	obfunc 0.964763
+TestOp 	c 794	w 0	obfunc 0.964763
+TestLOP	c 778	w 0	obfunc 0.954601
+TestExa	c 471	w 0	obfunc 0.712018
+
+FoldNum 4
+FoldId 1
+Optimal	c 629	w 0	obfunc 0.968437
+TestOp 	c 629	w 0	obfunc 0.968437
+TestLOP	c 616	w 0	obfunc 0.958009
+TestExa	c 370	w 0	obfunc 0.711538
+FoldId 2
+Optimal	c 619	w 0	obfunc 0.974036
+TestOp 	c 619	w 0	obfunc 0.974036
+TestLOP	c 606	w 0	obfunc 0.963434
+TestExa	c 370	w 0	obfunc 0.72407
+FoldId 3
+Optimal	c 645	w 0	obfunc 0.971386
+TestOp 	c 645	w 0	obfunc 0.971386
+TestLOP	c 624	w 0	obfunc 0.954858
+TestExa	c 354	w 0	obfunc 0.682739
+FoldId 4
+Optimal	c 626	w 0	obfunc 0.977361
+TestOp 	c 626	w 0	obfunc 0.977361
+TestLOP	c 604	w 0	obfunc 0.959492
+TestExa	c 352	w 0	obfunc 0.699106
+
+FoldNum 5
+FoldId 1
+Optimal	c 514	w 0	obfunc 0.963449
+TestOp 	c 514	w 0	obfunc 0.963449
+TestLOP	c 501	w 0	obfunc 0.950664
+TestExa	c 297	w 0	obfunc 0.698824
+FoldId 2
+Optimal	c 496	w 0	obfunc 0.975418
+TestOp 	c 496	w 0	obfunc 0.975418
+TestLOP	c 481	w 0	obfunc 0.96008
+TestExa	c 288	w 0	obfunc 0.71199
+FoldId 3
+Optimal	c 498	w 0	obfunc 0.976471
+TestOp 	c 498	w 0	obfunc 0.976471
+TestLOP	c 487	w 0	obfunc 0.965312
+TestExa	c 266	w 0	obfunc 0.675127
+FoldId 4
+Optimal	c 482	w 0	obfunc 0.971774
+TestOp 	c 482	w 0	obfunc 0.971774
+TestLOP	c 470	w 0	obfunc 0.959184
+TestExa	c 274	w 0	obfunc 0.69898
+FoldId 5
+Optimal	c 529	w 0	obfunc 0.976916
+TestOp 	c 529	w 0	obfunc 0.976916
+TestLOP	c 512	w 0	obfunc 0.9606
+TestExa	c 316	w 0	obfunc 0.726437
+
+FoldNum 6
+FoldId 1
+Optimal	c 414	w 0	obfunc 0.975265
+TestOp 	c 414	w 0	obfunc 0.975265
+TestLOP	c 403	w 0	obfunc 0.961814
+TestExa	c 233	w 0	obfunc 0.697605
+FoldId 2
+Optimal	c 432	w 0	obfunc 0.971879
+TestOp 	c 432	w 0	obfunc 0.971879
+TestLOP	c 421	w 0	obfunc 0.958998
+TestExa	c 253	w 0	obfunc 0.712676
+FoldId 3
+Optimal	c 404	w 0	obfunc 0.967665
+TestOp 	c 404	w 0	obfunc 0.967665
+TestLOP	c 394	w 0	obfunc 0.955152
+TestExa	c 214	w 0	obfunc 0.663566
+FoldId 4
+Optimal	c 392	w 0	obfunc 0.966708
+TestOp 	c 392	w 0	obfunc 0.966708
+TestLOP	c 381	w 0	obfunc 0.9525
+TestExa	c 233	w 0	obfunc 0.714724
+FoldId 5
+Optimal	c 447	w 0	obfunc 0.979189
+TestOp 	c 447	w 0	obfunc 0.979189
+TestLOP	c 436	w 0	obfunc 0.966741
+TestExa	c 267	w 0	obfunc 0.728513
+FoldId 6
+Optimal	c 428	w 0	obfunc 0.976055
+TestOp 	c 428	w 0	obfunc 0.976055
+TestLOP	c 415	w 0	obfunc 0.960648
+TestExa	c 246	w 0	obfunc 0.707914
+
+FoldNum 7
+FoldId 1
+Optimal	c 346	w 0	obfunc 0.965132
+TestOp 	c 346	w 0	obfunc 0.965132
+TestLOP	c 340	w 0	obfunc 0.956399
+TestExa	c 208	w 0	obfunc 0.71848
+FoldId 2
+Optimal	c 362	w 0	obfunc 0.956407
+TestOp 	c 362	w 0	obfunc 0.956407
+TestLOP	c 353	w 0	obfunc 0.94385
+TestExa	c 214	w 0	obfunc 0.702791
+FoldId 3
+Optimal	c 373	w 0	obfunc 0.982872
+TestOp 	c 373	w 0	obfunc 0.982872
+TestLOP	c 364	w 0	obfunc 0.970667
+TestExa	c 206	w 0	obfunc 0.695946
+FoldId 4
+Optimal	c 356	w 0	obfunc 0.97668
+TestOp 	c 356	w 0	obfunc 0.97668
+TestLOP	c 343	w 0	obfunc 0.958101
+TestExa	c 196	w 0	obfunc 0.688928
+FoldId 5
+Optimal	c 363	w 0	obfunc 0.979757
+TestOp 	c 363	w 0	obfunc 0.979757
+TestLOP	c 354	w 0	obfunc 0.967213
+TestExa	c 214	w 0	obfunc 0.722973
+FoldId 6
+Optimal	c 368	w 0	obfunc 0.974834
+TestOp 	c 368	w 0	obfunc 0.974834
+TestLOP	c 359	w 0	obfunc 0.962466
+TestExa	c 216	w 0	obfunc 0.716418
+FoldId 7
+Optimal	c 348	w 0	obfunc 0.973427
+TestOp 	c 348	w 0	obfunc 0.973427
+TestLOP	c 336	w 0	obfunc 0.955903
+TestExa	c 200	w 0	obfunc 0.705467
+
+FoldNum 8
+FoldId 1
+Optimal	c 308	w 0	obfunc 0.971609
+TestOp 	c 308	w 0	obfunc 0.971609
+TestLOP	c 302	w 0	obfunc 0.961783
+TestExa	c 187	w 0	obfunc 0.729045
+FoldId 2
+Optimal	c 317	w 0	obfunc 0.970904
+TestOp 	c 317	w 0	obfunc 0.970904
+TestLOP	c 311	w 0	obfunc 0.96136
+TestExa	c 193	w 0	obfunc 0.729679
+FoldId 3
+Optimal	c 325	w 0	obfunc 0.975976
+TestOp 	c 325	w 0	obfunc 0.975976
+TestLOP	c 315	w 0	obfunc 0.960366
+TestExa	c 192	w 0	obfunc 0.72045
+FoldId 4
+Optimal	c 313	w 0	obfunc 0.970543
+TestOp 	c 313	w 0	obfunc 0.970543
+TestLOP	c 308	w 0	obfunc 0.9625
+TestExa	c 180	w 0	obfunc 0.703125
+FoldId 5
+Optimal	c 317	w 0	obfunc 0.972393
+TestOp 	c 317	w 0	obfunc 0.972393
+TestLOP	c 305	w 0	obfunc 0.953125
+TestExa	c 181	w 0	obfunc 0.70155
+FoldId 6
+Optimal	c 336	w 0	obfunc 0.978166
+TestOp 	c 336	w 0	obfunc 0.978166
+TestLOP	c 324	w 0	obfunc 0.96
+TestExa	c 178	w 0	obfunc 0.672968
+FoldId 7
+Optimal	c 293	w 0	obfunc 0.965404
+TestOp 	c 293	w 0	obfunc 0.965404
+TestLOP	c 285	w 0	obfunc 0.951586
+TestExa	c 173	w 0	obfunc 0.710472
+FoldId 8
+Optimal	c 308	w 0	obfunc 0.976228
+TestOp 	c 308	w 0	obfunc 0.976228
+TestLOP	c 298	w 0	obfunc 0.959742
+TestExa	c 195	w 0	obfunc 0.752896
+
+FoldNum 9
+FoldId 1
+Optimal	c 276	w 0	obfunc 0.955017
+TestOp 	c 276	w 0	obfunc 0.955017
+TestLOP	c 267	w 0	obfunc 0.938489
+TestExa	c 165	w 0	obfunc 0.706638
+FoldId 2
+Optimal	c 273	w 0	obfunc 0.969805
+TestOp 	c 273	w 0	obfunc 0.969805
+TestLOP	c 266	w 0	obfunc 0.956835
+TestExa	c 156	w 0	obfunc 0.699552
+FoldId 3
+Optimal	c 282	w 0	obfunc 0.979167
+TestOp 	c 282	w 0	obfunc 0.979167
+TestLOP	c 278	w 0	obfunc 0.972028
+TestExa	c 172	w 0	obfunc 0.738197
+FoldId 4
+Optimal	c 284	w 0	obfunc 0.97931
+TestOp 	c 284	w 0	obfunc 0.97931
+TestLOP	c 281	w 0	obfunc 0.974003
+TestExa	c 159	w 0	obfunc 0.698901
+FoldId 5
+Optimal	c 280	w 0	obfunc 0.97561
+TestOp 	c 280	w 0	obfunc 0.97561
+TestLOP	c 272	w 0	obfunc 0.961131
+TestExa	c 147	w 0	obfunc 0.666667
+FoldId 6
+Optimal	c 289	w 0	obfunc 0.973064
+TestOp 	c 289	w 0	obfunc 0.973064
+TestLOP	c 277	w 0	obfunc 0.95189
+TestExa	c 165	w 0	obfunc 0.702128
+FoldId 7
+Optimal	c 284	w 0	obfunc 0.975945
+TestOp 	c 284	w 0	obfunc 0.975945
+TestLOP	c 274	w 0	obfunc 0.958042
+TestExa	c 172	w 0	obfunc 0.731915
+FoldId 8
+Optimal	c 261	w 0	obfunc 0.961326
+TestOp 	c 261	w 0	obfunc 0.961326
+TestLOP	c 254	w 0	obfunc 0.947761
+TestExa	c 158	w 0	obfunc 0.718182
+FoldId 9
+Optimal	c 291	w 0	obfunc 0.984772
+TestOp 	c 291	w 0	obfunc 0.984772
+TestLOP	c 282	w 0	obfunc 0.969072
+TestExa	c 187	w 0	obfunc 0.767967
+
+FoldNum 10
+FoldId 1
+Optimal	c 234	w 0	obfunc 0.975
+TestOp 	c 234	w 0	obfunc 0.975
+TestLOP	c 227	w 0	obfunc 0.959831
+TestExa	c 127	w 0	obfunc 0.680965
+FoldId 2
+Optimal	c 237	w 0	obfunc 0.969325
+TestOp 	c 237	w 0	obfunc 0.969325
+TestLOP	c 234	w 0	obfunc 0.962963
+TestExa	c 134	w 0	obfunc 0.694301
+FoldId 3
+Optimal	c 267	w 0	obfunc 0.978022
+TestOp 	c 267	w 0	obfunc 0.978022
+TestLOP	c 258	w 0	obfunc 0.960894
+TestExa	c 161	w 0	obfunc 0.731818
+FoldId 4
+Optimal	c 261	w 0	obfunc 0.984906
+TestOp 	c 261	w 0	obfunc 0.984906
+TestLOP	c 255	w 0	obfunc 0.973282
+TestExa	c 147	w 0	obfunc 0.706731
+FoldId 5
+Optimal	c 259	w 0	obfunc 0.970037
+TestOp 	c 259	w 0	obfunc 0.970037
+TestLOP	c 251	w 0	obfunc 0.954373
+TestExa	c 146	w 0	obfunc 0.693587
+FoldId 6
+Optimal	c 253	w 0	obfunc 0.974952
+TestOp 	c 253	w 0	obfunc 0.974952
+TestLOP	c 245	w 0	obfunc 0.958904
+TestExa	c 157	w 0	obfunc 0.742317
+FoldId 7
+Optimal	c 240	w 0	obfunc 0.965795
+TestOp 	c 240	w 0	obfunc 0.965795
+TestLOP	c 234	w 0	obfunc 0.953157
+TestExa	c 153	w 0	obfunc 0.746341
+FoldId 8
+Optimal	c 275	w 0	obfunc 0.978648
+TestOp 	c 275	w 0	obfunc 0.978648
+TestLOP	c 266	w 0	obfunc 0.962025
+TestExa	c 158	w 0	obfunc 0.710112
+FoldId 9
+Optimal	c 241	w 0	obfunc 0.962076
+TestOp 	c 241	w 0	obfunc 0.962076
+TestLOP	c 233	w 0	obfunc 0.945233
+TestExa	c 123	w 0	obfunc 0.642298
+FoldId 10
+Optimal	c 249	w 0	obfunc 0.968872
+TestOp 	c 249	w 0	obfunc 0.968872
+TestLOP	c 246	w 0	obfunc 0.962818
+TestExa	c 157	w 0	obfunc 0.744076
+
